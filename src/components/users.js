@@ -1,7 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+
+
+
+
+
 
 const Users = () => {
+  const navigate = useNavigate()
   //State management
   const [gitUsers, setGitUsers] = useState([]);
 
@@ -27,7 +35,7 @@ const Users = () => {
               className="user-avatar"
             />
             <span className="username">{user.login}</span>
-            <button className="view-btn">View User</button>
+            <button onClick={() => navigate(`/users/user/${user.login}`)} className="view-btn">View User</button>
           </div>
         ))}
       </div>
